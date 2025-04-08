@@ -3,21 +3,24 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./contexts/**/*.{js,ts,jsx,tsx}", // Add this if you have contexts folder
+    "./contexts/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}", // also include src folder if you’re using it
   ],
-  darkMode: 'class', // This enables class-based dark mode
+  darkMode: 'class',
   theme: {
     extend: {
       borderRadius: {
         'xl': '12px',
         '2xl': '16px',
       },
+      fontFamily: {
+        // ✅ Use CSS variable created by next/font/google
+        roboto: ['var(--font-roboto)', 'sans-serif'],
+      },
       colors: {
-        // Add your custom colors here if needed
         dark: {
           100: '#1E293B',
           200: '#0F172A',
-          // Add more dark mode colors as needed
         },
       },
       backgroundImage: {
@@ -27,7 +30,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'), // Optional: if you use form elements
-    // Add other plugins as needed
+    require('@tailwindcss/forms'),
   ],
 }

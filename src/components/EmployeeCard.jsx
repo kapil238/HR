@@ -11,13 +11,13 @@ const EmployeeCard = ({ title, subtitle, entries, isOpen, onClick }) => {
         <div>
           <h2 className="text-md font-semibold text-gray-500">{title}</h2>
 
-          {/* Subtitle will show only when the card is open */}
+          
           {isOpen && subtitle && (
             <h3 className="text-sm font-medium text-gray-500 mt-1">{subtitle}</h3>
           )}
         </div>
         
-        {/* Updated Icon */}
+        
         <span className={`text-gray-400 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}>
           <MdArrowOutward size={17} />
         </span>

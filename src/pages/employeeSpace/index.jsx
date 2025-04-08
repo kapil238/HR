@@ -42,32 +42,37 @@ export default function EmployeeSpace() {
     { title: "Holiday List", entries: [{ name: "Kapil Sanghani", date: "1 month ago", statusIcon: <AiOutlineCheckCircle className="text-green-500" /> }] }
   ];
 
+  const handleTaskClick = (index) => {
+    const routes = ["/newTaskHandover", "/DailyWorkReport", "/HolidayList"];
+    index < routes.length ? router.push(routes[index]) : setOpenCard(openCard === index ? null : index);
+  };
+
+  const taskData = [
+    { title: "New Task Handover...", entries: [{ name: "Kapil Sanghani", date: "2 days ago" }] },
+    { title: "Daily Work Report", entries: [{ name: "Kapil Sanghani", date: "3 days ago", statusIcon: <AiOutlineCheckCircle className="text-green-500" /> }] },
+    { title: "Holiday List", entries: [{ name: "Kapil Sanghani", date: "1 month ago", statusIcon: <AiOutlineCheckCircle className="text-green-500" /> }] }
+  ];
+
   return (
-    <div
-      className="relative min-h-screen flex flex-col items-center justify-center p-1"
-      style={{
-        backgroundImage: "url('/images/emp-bg3.jpeg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      <div className="max-w-8xl w-full mx-auto">
+    <div className="relative min-h-screen bg-[#f8fbff] flex flex-col items-center p-1">
+      <div className="w-full max-w-8xl mx-auto">
         <Header />
         <hr className="border-t border-gray-300" />
-        <h3 className="text-3xl font-semibold text-gray-800 pb-2 pt-2 px-4 px-60">Employee Space</h3>
+        <h3 className="text-3xl font-semibold text-gray-800 pb-2 pt-2 px-4 sm:px-10 md:px-20">
+          Employee Space
+        </h3>
         <hr className="border-t border-gray-300" />
 
-        <div className="max-w-5xl mx-auto w-full px-4">
+        <div className="w-full max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto">
           <div className="w-full p-4 mb-3">
             <div className="flex flex-row items-center justify-between mt-2">
               <Logo />
             </div>
 
             {/* Punch Section */}
-            <div className="flex gap-7 mt-6 w-full pb-10 max-w-lg mx-40">
-              <div className="flex flex-col items-center">
+            <div className="flex flex-col sm:flex-row gap-7 mt-6 w-full pb-10 max-w-full sm:max-w-2xl mx-auto">
+              {/* Time and Button */}
+              <div className="flex flex-col items-center w-full sm:w-auto">
                 <div className="text-center">
                   <p className="text-sm sm:text-2xl font-semibold text-gray-800 pb-2 tracking-wider">
                     {formattedDate}
@@ -76,16 +81,16 @@ export default function EmployeeSpace() {
                     {formattedTime}
                   </p>
                 </div>
-
                 <button
-                  className={`w-72 px-5 text-white rounded-md font-medium text-base transition cursor-pointer ${isPunchedIn ? "bg-red-600 hover:bg-red-700" : "bg-green-600 hover:bg-green-700"}`}
+                  className={`w-full sm:w-72 px-5 py-2 text-white rounded-md font-medium text-base transition cursor-pointer ${isPunchedIn ? "bg-red-600 hover:bg-red-700" : "bg-green-600 hover:bg-green-700"}`}
                   onClick={handlePunch}
                 >
                   {isPunchedIn ? "Punch Out" : "Punch In"}
                 </button>
               </div>
 
-              <div className="text-gray-800 text-sm sm:text-base">
+              {/* Shift Time Info */}
+              <div className="text-gray-800 text-sm sm:text-base flex flex-col justify-center w-full sm:w-auto">
                 <p className="font-semibold">Start Shift: {startShift || ""}</p>
                 <p className="mt-2 font-semibold">End Shift: {endShift || ""}</p>
               </div>
@@ -93,8 +98,8 @@ export default function EmployeeSpace() {
 
             <DailyWorkReport />
 
-            {/* Employee Cards Section */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 justify-center">
+            {/* Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
               {cardData.map((card, index) => (
                 <EmployeeCard
                   key={index}
@@ -106,7 +111,24 @@ export default function EmployeeSpace() {
               ))}
             </div>
 
-            <EmployeeStatusTable />
+            {/* Table */}
+            <div className="overflow-x-auto mt-6">
+              <EmployeeStatusTable />
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full mt-6">
+              {taskData.map((task, index) => (
+                <EmployeeCard
+                  key={index}
+                  title={task.title}
+                  entries={task.entries}
+                  isOpen={openCard === index}
+                  onClick={() => handleTaskClick(index)}
+                />
+              ))}
+            </div>
+
+
           </div>
         </div>
       </div>

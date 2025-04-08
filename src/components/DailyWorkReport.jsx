@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DocumentTextIcon } from "@heroicons/react/24/outline";
 import AddTaskModal from "./AddTaskModal";
-import TaskTable from "./TaskTable"; // Import TaskTable component
+import TaskTable from "./TaskTable"; 
 
 export default function DailyWorkReport() {
     const [tasks, setTasks] = useState([

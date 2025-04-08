@@ -14,7 +14,7 @@ export default function TaskTable({ tasks, onOpenModal }) {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
-                {/* Blur Effect Only Inside Table Border */}
+                
                 {hovered && (
                     <div className="absolute inset-0 z-10 bg-black/0 backdrop-blur-xs flex items-center justify-center">
                         <button
