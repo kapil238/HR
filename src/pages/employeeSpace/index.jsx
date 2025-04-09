@@ -43,14 +43,13 @@ export default function EmployeeSpace() {
   ];
 
   const handleTaskClick = (index) => {
-    const routes = ["/newTaskHandover", "/DailyWorkReport", "/HolidayList"];
+    const routes = ["/newTaskHandover", "/leaveApplication"];
     index < routes.length ? router.push(routes[index]) : setOpenCard(openCard === index ? null : index);
   };
 
   const taskData = [
-    { title: "New Task Handover...", entries: [{ name: "Kapil Sanghani", date: "2 days ago" }] },
-    { title: "Daily Work Report", entries: [{ name: "Kapil Sanghani", date: "3 days ago", statusIcon: <AiOutlineCheckCircle className="text-green-500" /> }] },
-    { title: "Holiday List", entries: [{ name: "Kapil Sanghani", date: "1 month ago", statusIcon: <AiOutlineCheckCircle className="text-green-500" /> }] }
+    { title: "New Task Handover..." },
+    { title: "Leave Application" },
   ];
 
   return (
@@ -69,9 +68,9 @@ export default function EmployeeSpace() {
               <Logo />
             </div>
 
-            {/* Punch Section */}
+           
             <div className="flex flex-col sm:flex-row gap-7 mt-6 w-full pb-10 max-w-full sm:max-w-2xl mx-auto">
-              {/* Time and Button */}
+              
               <div className="flex flex-col items-center w-full sm:w-auto">
                 <div className="text-center">
                   <p className="text-sm sm:text-2xl font-semibold text-gray-800 pb-2 tracking-wider">
@@ -89,7 +88,7 @@ export default function EmployeeSpace() {
                 </button>
               </div>
 
-              {/* Shift Time Info */}
+             
               <div className="text-gray-800 text-sm sm:text-base flex flex-col justify-center w-full sm:w-auto">
                 <p className="font-semibold">Start Shift: {startShift || ""}</p>
                 <p className="mt-2 font-semibold">End Shift: {endShift || ""}</p>
@@ -98,7 +97,7 @@ export default function EmployeeSpace() {
 
             <DailyWorkReport />
 
-            {/* Cards */}
+            
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
               {cardData.map((card, index) => (
                 <EmployeeCard
@@ -110,8 +109,6 @@ export default function EmployeeSpace() {
                 />
               ))}
             </div>
-
-            {/* Table */}
             <div className="overflow-x-auto mt-6">
               <EmployeeStatusTable />
             </div>
@@ -121,14 +118,12 @@ export default function EmployeeSpace() {
                 <EmployeeCard
                   key={index}
                   title={task.title}
-                  entries={task.entries}
+                  // entries={task.entries}
                   isOpen={openCard === index}
                   onClick={() => handleTaskClick(index)}
                 />
               ))}
             </div>
-
-
           </div>
         </div>
       </div>

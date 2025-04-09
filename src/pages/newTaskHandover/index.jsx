@@ -1,3 +1,4 @@
+import { Editor } from '@tinymce/tinymce-react';
 import Logo from "@/components/LogoDark";
 import { useRouter } from 'next/router';
 import { IoMdNotifications } from "react-icons/io";
@@ -8,29 +9,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 export default function LeaveSummary() {
     const router = useRouter();
-
-    const data = [
-        {
-            index: "",
-            id: "—— ——",
-            name: "—— ——",
-            department: "—— ——",
-            casual: "—— ——",
-            sick: "—— ——",
-        },
-        {
-            index: "1",
-            id: "HR-EMP-001:K...",
-            name: "Kapil Sanghani",
-            department: "",
-            casual: 20.0,
-            sick: 3.0,
-        },
-    ];
-
     return (
         <div className="min-h-screen bg-white text-black">
-            {/* Header */}
             <div className="bg-white shadow-lg">
                 <div className="flex items-center gap-2 max-w-7xl mx-auto py-4 px-4 h-[50px]">
                     <div className="w-[130px] h-[30px]">
@@ -40,9 +20,9 @@ export default function LeaveSummary() {
                 <hr className="border-t border-gray-300 shadow-lg" />
             </div>
 
-            <div className="container mx-auto px-4 space-y-6 max-w-7xl mx-auto">
+            <div className="container mx-auto px-4 space-y-4 max-w-7xl mx-auto">
 
-                <div className="flex justify-between items-center mb-14 pt-10 flex-wrap gap-4">
+                <div className="flex justify-between items-center mb-10 pt-6 flex-wrap gap-4">
                     <button
                         onClick={() => router.push('/employeeSpace')}
                         className="w-[35px] h-[35px] flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-md cursor-pointer"
@@ -61,58 +41,56 @@ export default function LeaveSummary() {
 
                 <div className="flex flex-wrap gap-4 w-full">
 
-                    <button className="text-base text-white font-medium leading-none px-4 py-3 rounded-md border bg-[#828282] cursor-pointer min-w-[200px] flex justify-between">
+                    <button className="text-base text-white font-medium leading-none px-2 py-3 rounded-md border bg-[#828282] cursor-pointer min-w-[175px] flex justify-between">
                         Task Handover
                         <MdArrowForwardIos />
                     </button>
-                    <button className="text-base text-white font-medium leading-none px-4 py-3 rounded-md border bg-[#828282] cursor-pointer min-w-[200px] flex justify-between">
+                    <button className="text-base text-white font-medium leading-none px-2 py-3 rounded-md border bg-[#828282] cursor-pointer min-w-[220px] flex justify-between">
                         New Task Handover
                         <MdArrowForwardIos />
                     </button>
-                    <button className="text-base text-white font-medium leading-none px-4 py-3 rounded-md border bg-[#828282] cursor-pointer min-w-[200px] flex justify-between">
+                    <button className="text-base text-white font-medium leading-none px-2 py-3 rounded-md border bg-[#828282] cursor-pointer min-w-[120px] flex justify-between">
                         Add Task
                         <MdArrowForwardIos />
                     </button>
                 </div>
 
-                <div className="flex justify-between items-center pt-6">
-
-                    <h2 className="text-2xl font-bold underline pt-5">
+                <div className="flex flex-wrap justify-between items-center gap-4 pt-6 px-4 sm:px-6">
+                    <div className="text-xl sm:text-2xl font-bold border border-gray-300 p-2 rounded-md text-black">
                         New Task Handover
-                    </h2>
+                    </div>
 
-                    <div className="flex items-center gap-4 text-md mr-3">
+                    <div className="flex items-center gap-3 sm:gap-4 text-sm sm:text-md">
                         <button
-                            className="w-[30px] h-[30px] flex items-center rounded-sm justify-center bg-gray-200 hover:bg-gray-200 text-md cursor-pointer"
+                            className="w-[30px] h-[30px] flex items-center justify-center rounded-sm bg-gray-200 hover:bg-gray-300 cursor-pointer transition"
                         >
                             <IoRepeatSharp className="w-[18px] h-[18px]" />
                         </button>
                         <button
-                            className="w-[30px] h-[30px] flex items-center rounded-sm justify-center bg-gray-200 hover:bg-gray-200 text-md cursor-pointer"
+                            className="w-[30px] h-[30px] flex items-center justify-center rounded-sm bg-gray-200 hover:bg-gray-300 cursor-pointer transition"
                         >
                             <PiDotsThreeOutline className="w-[18px] h-[18px]" />
                         </button>
-
                     </div>
                 </div>
-
-
-
-
-                <div className="overflow-x-auto mt-14">
-                    <div className="rounded-lg overflow-hidden min-w-[600px] pb-10">
-
-
+                <div className="overflow-x-auto px-4 sm:px-6 py-2">
+                    <div className="rounded-lg overflow-hidden min-w-[300px] sm:min-w-[600px]">
                         <div className="mt-10 space-y-6">
-
                             <div className="flex items-center gap-2">
-                                <input type="checkbox" id="handoverConfirmed" className="w-4 h-4 cursor-pointer" />
-                                <label htmlFor="handoverConfirmed" className="text-sm font-medium">Handover Confirmed</label>
+                                <input
+                                    type="checkbox"
+                                    id="handoverConfirmed"
+                                    className="w-4 h-4 cursor-pointer"
+                                />
+                                <label
+                                    htmlFor="handoverConfirmed"
+                                    className="text-sm font-medium"
+                                >
+                                    Handover Confirmed
+                                </label>
                             </div>
-
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4 px-10">
-                                <div className="space-y-2">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6 px-0 sm:px-6">
+                                <div className="space-y-4">
                                     {[
                                         "Handover To",
                                         "Handover To (Email)",
@@ -122,14 +100,16 @@ export default function LeaveSummary() {
                                         "Team Lead (Email)",
                                         "Team Lead (Name)",
                                     ].map((label, i) => (
-                                        <div key={i} className="flex items-center gap-6">
-                                            <span className="text-md text-black font-medium w-2/5">• {label} :</span>
-                                            <input type="text" className="bg-[#ECECEC] w-[250px] h-[30px] px-2 py-1 rounded-sm w-3/5" />
+                                        <div key={i} className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6">
+                                            <span className="text-md text-black font-medium sm:w-2/5 w-full">• {label} :</span>
+                                            <input
+                                                type="text"
+                                                className="bg-[#ECECEC] h-[36px] px-3 py-1 rounded-sm w-full sm:w-3/5"
+                                            />
                                         </div>
                                     ))}
                                 </div>
-
-                                <div className="space-y-2">
+                                <div className="space-y-4">
                                     {[
                                         "Employee ID",
                                         "Employee (Name)",
@@ -137,19 +117,66 @@ export default function LeaveSummary() {
                                         "Form Data",
                                         "To Data",
                                     ].map((label, i) => (
-                                        <div key={i} className="flex items-center gap-6">
-                                            <span className="text-md text-black font-medium w-2/5">• {label} :</span>
-                                            <input type="text" className="bg-[#ECECEC] w-[250px] h-[30px] p-1 rounded-sm w-3/5" />
+                                        <div key={i} className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6">
+                                            <span className="text-md text-black font-medium sm:w-2/5 w-full">• {label} :</span>
+                                            <input
+                                                type="text"
+                                                className="bg-[#ECECEC] h-[36px] px-3 py-1 rounded-sm w-full sm:w-3/5"
+                                            />
                                         </div>
                                     ))}
                                 </div>
                             </div>
-                            <button className="bg-gray-200 px-8 rounded-sm py-2 font-medium text-lg rounded-t cursor-pointer">Task To Handover</button>
+                            <div className="flex pt-4">
+                                <button className="bg-gray-200 px-8 py-2 font-medium text-lg rounded cursor-pointer hover:bg-gray-300 transition">
+                                    Task To Handover
+                                </button>
+                            </div>
                         </div>
-
                     </div>
                 </div>
 
+                <div className="mt-10 px-4 sm:px-6 h-full">
+                    <div className="border border-gray-300 rounded-md overflow-hidden shadow-sm">
+                        <Editor
+                            apiKey="5c8p7w8gijloevj1gdkcmlt7q7tudu3ku2v1k9qu6zf5s6fi"
+                            init={{
+                                plugins: [
+                                    'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                                    'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable',
+                                    'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography',
+                                    'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
+                                ],
+                                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                                tinycomments_mode: 'embedded',
+                                tinycomments_author: 'Author name',
+                                mergetags_list: [
+                                    { value: 'First.Name', title: 'First Name' },
+                                    { value: 'Email', title: 'Email' },
+                                ],
+
+                                images_upload_handler: (blobInfo, success, failure) => {
+                                    const formData = new FormData();
+                                    formData.append('file', blobInfo.blob());
+                                    formData.append('upload_preset', 'your_upload_preset'); 
+
+                                    fetch('https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', {
+                                        method: 'POST',
+                                        body: formData,
+                                    })
+                                        .then(res => res.json())
+                                        .then(data => success(data.secure_url))
+                                        .catch(err => failure('Image upload failed: ' + err.message));
+                                },
+
+                                ai_request: (request, respondWith) =>
+                                    respondWith.string(() =>
+                                        Promise.reject('See docs to implement AI Assistant')
+                                    ),
+                            }}
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     );
