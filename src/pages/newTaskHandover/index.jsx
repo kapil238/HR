@@ -1,4 +1,6 @@
-import { Editor } from '@tinymce/tinymce-react';
+'use client'
+import { useState } from 'react';
+import QuillEditor from '@/components/QuillEditor';
 import Logo from "@/components/LogoDark";
 import { useRouter } from 'next/router';
 import { IoMdNotifications } from "react-icons/io";
@@ -9,6 +11,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 export default function LeaveSummary() {
     const router = useRouter();
+    const [editorContent, setEditorContent] = useState('');
+    
     return (
         <div className="min-h-screen bg-white text-black">
             <div className="bg-white shadow-lg">
@@ -21,14 +25,12 @@ export default function LeaveSummary() {
             </div>
 
             <div className="container mx-auto px-4 space-y-4 max-w-7xl mx-auto">
-
                 <div className="flex justify-between items-center mb-10 pt-6 flex-wrap gap-4">
                     <button
                         onClick={() => router.push('/employeeSpace')}
                         className="w-[35px] h-[35px] flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 text-md cursor-pointer"
                     >
                         <MdOutlineKeyboardBackspace className="w-[20px] h-[20px]" />
-
                     </button>
 
                     <div className="flex items-center gap-4 text-md">
@@ -40,7 +42,6 @@ export default function LeaveSummary() {
                 </div>
 
                 <div className="flex flex-wrap gap-4 w-full">
-
                     <button className="text-base text-white font-medium leading-none px-2 py-3 rounded-md border bg-[#828282] cursor-pointer min-w-[175px] flex justify-between">
                         Task Handover
                         <MdArrowForwardIos />
@@ -73,6 +74,7 @@ export default function LeaveSummary() {
                         </button>
                     </div>
                 </div>
+                
                 <div className="overflow-x-auto px-4 sm:px-6 py-2">
                     <div className="rounded-lg overflow-hidden min-w-[300px] sm:min-w-[600px]">
                         <div className="mt-10 space-y-6">
@@ -127,54 +129,25 @@ export default function LeaveSummary() {
                                     ))}
                                 </div>
                             </div>
+
                             <div className="flex pt-4">
                                 <button className="bg-gray-200 px-8 py-2 font-medium text-lg rounded cursor-pointer hover:bg-gray-300 transition">
                                     Task To Handover
                                 </button>
                             </div>
+                            
+                            <div className="pt-4 px-0 sm:px-6">
+                                <label className="block text-md text-black font-medium mb-2">
+                                    Task Description
+                                </label>
+                                <div className="bg-white rounded-md border border-gray-300">
+                                    <QuillEditor 
+                                        value={editorContent} 
+                                        onChange={setEditorContent} 
+                                    />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div className="mt-10 px-4 sm:px-6 h-full">
-                    <div className="border border-gray-300 rounded-md overflow-hidden shadow-sm">
-                        <Editor
-                            apiKey="5c8p7w8gijloevj1gdkcmlt7q7tudu3ku2v1k9qu6zf5s6fi"
-                            init={{
-                                plugins: [
-                                    'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
-                                    'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable',
-                                    'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography',
-                                    'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
-                                ],
-                                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-                                tinycomments_mode: 'embedded',
-                                tinycomments_author: 'Author name',
-                                mergetags_list: [
-                                    { value: 'First.Name', title: 'First Name' },
-                                    { value: 'Email', title: 'Email' },
-                                ],
-
-                                images_upload_handler: (blobInfo, success, failure) => {
-                                    const formData = new FormData();
-                                    formData.append('file', blobInfo.blob());
-                                    formData.append('upload_preset', 'your_upload_preset'); 
-
-                                    fetch('https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', {
-                                        method: 'POST',
-                                        body: formData,
-                                    })
-                                        .then(res => res.json())
-                                        .then(data => success(data.secure_url))
-                                        .catch(err => failure('Image upload failed: ' + err.message));
-                                },
-
-                                ai_request: (request, respondWith) =>
-                                    respondWith.string(() =>
-                                        Promise.reject('See docs to implement AI Assistant')
-                                    ),
-                            }}
-                        />
                     </div>
                 </div>
             </div>

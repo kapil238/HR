@@ -145,3 +145,22 @@ body {
   }
 }
 
+.ql-toolbar {
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  border: 1px solid #d1d5db !important;
+  background-color: #f3f4f6;
+}
+
+.ql-container {
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  border: 1px solid #d1d5db !important;
+  border-top: none !important;
+  min-height: 200px;
+  font-family: inherit;
+}
+
+.ql-editor {
+  min-height: 200px;
+}

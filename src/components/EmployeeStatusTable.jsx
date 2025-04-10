@@ -2,9 +2,11 @@ import React from "react";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { MdArrowForwardIos } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
+import { useRouter } from 'next/router';
 
 const EmployeeStatusList = () => {
     // Sample data
+    const router = useRouter();
     const employeeData = [
         {
             checkinInfo: { name: "Kapil Sanghani", time: "17 hours ago" },
@@ -108,7 +110,10 @@ const EmployeeStatusList = () => {
                     <span>View List</span>
                     <MdArrowForwardIos className="text-gray-500 text-xs" />
                 </div>
-                <div className="flex gap-4 items-center">
+                <div
+                    className="flex gap-4 items-center cursor-pointer"
+                    onClick={() => router.push('/EmployeeCheckin')}
+                >
                     <span>View List</span>
                     <MdArrowForwardIos className="text-gray-500 text-xs" />
                 </div>
