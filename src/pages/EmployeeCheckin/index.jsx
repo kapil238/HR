@@ -5,6 +5,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { MdOutlineKeyboardBackspace, MdArrowForwardIos, MdOutlineUnfoldMore } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaBan, FaAlignLeft } from "react-icons/fa";
+import { IoRepeatSharp } from "react-icons/io5";
 
 export default function EmployeeCheckin() {
     const router = useRouter();
@@ -72,10 +73,15 @@ export default function EmployeeCheckin() {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap gap-4 w-full">
+                <div className="flex flex-wrap gap-4 w-full justify-between">
                     <button className="text-base font-medium border-black leading-none px-4 py-3 rounded-md border cursor-pointer min-w-[210px] flex justify-between">
                         Employee Checkin
                         <MdArrowForwardIos />
+                    </button>
+                    <button
+                        className="w-[30px] h-[30px] flex items-center justify-center rounded-sm bg-gray-200 hover:bg-gray-300 cursor-pointer transition"
+                    >
+                        <IoRepeatSharp className="w-[18px] h-[18px]" />
                     </button>
                 </div>
 
@@ -135,7 +141,7 @@ export default function EmployeeCheckin() {
                                     <td className="px-4 py-3 whitespace-nowrap">
                                         <button
                                             onClick={() => toggleType(index)}
-                                            className={`px-3 py-1 rounded-full font-semibold text-white cursor-pointer ${report.type === 'IN' ? 'bg-blue-600' : 'bg-red-500'
+                                            className={`px-3 py-1 rounded-full font-semibold text-white cursor-pointer w-[70px] ${report.type === 'IN' ? 'bg-green-600' : 'bg-red-500'
                                                 }`}
                                         >
                                             {report.type}
