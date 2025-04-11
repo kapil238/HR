@@ -158,10 +158,10 @@ export default function DailyWorkReport() {
 
                 <div className="flex flex-wrap gap-4 w-full justify-between sm:justify-around">
 
-                    <button className="text-base font-medium leading-none px-4 py-3 rounded-md border bg-[#EDEDED] cursor-pointer min-w-[200px] ">
+                    <button className="text-base font-medium leading-none px-4 py-3 rounded-md border bg-[#EDEDED] cursor-pointer w-full sm:w-[200px] ">
                         11-04-2025
                     </button>
-                    <button className="text-base font-medium leading-none px-4 py-3 rounded-md border bg-[#EDEDED] cursor-pointer min-w-[200px]">
+                    <button className="text-base font-medium leading-none px-4 py-3 rounded-md border bg-[#EDEDED] cursor-pointer w-full sm:w-[200px]">
                         12-04-2025
                     </button>
 

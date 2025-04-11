@@ -35,7 +35,8 @@ const EmployeeStatusList = () => {
         <div className="bg-white px-4 rounded-lg">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-3 py-3">
                 <div>
-                    <h2 className="font-semibold text-sm text-gray-500 mb-2">Checkin Info</h2>
+                    <h2 className="font-semibold text-md sm:text-sm  text-gray-900 mb-2">Checkin Info</h2>
+                    <hr className="p-1"/>
                     {employeeData.map((employee, index) => (
                         <div key={index} className="flex justify-between items-center py-2">
                             <div>
@@ -52,7 +53,8 @@ const EmployeeStatusList = () => {
                 </div>
 
                 <div>
-                    <h2 className="font-semibold text-sm text-gray-500 mb-2">Attendance</h2>
+                    <h2 className="font-semibold text-md sm:text-sm text-gray-900 mb-2">Attendance</h2>
+                    <hr className="p-1"/>
                     {employeeData.map((employee, index) => (
                         <div key={index} className="flex justify-between items-center py-2">
                             <div>
@@ -76,7 +78,8 @@ const EmployeeStatusList = () => {
                     </div>
                 </div>
                 <div>
-                    <h2 className="font-semibold text-sm text-gray-500 mb-2">Leave Application</h2>
+                    <h2 className="font-semibold text-md sm:text-sm text-gray-900 mb-2">Leave Application</h2>
+                    <hr className="p-1"/>
                     {employeeData.map((employee, index) => (
                         <div key={index} className="flex justify-between items-center py-2">
                             <div>

@@ -14,7 +14,7 @@ export default function TaskTable({ tasks, onOpenModal }) {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
             >
-                
+
                 {hovered && (
                     <div className="absolute inset-0 z-10 bg-black/0 backdrop-blur-xs flex items-center justify-center">
                         <button
@@ -27,48 +27,49 @@ export default function TaskTable({ tasks, onOpenModal }) {
                     </div>
                 )}
 
-                <table className="min-w-full relative z-0">
-                    <thead className="bg-blue-500 text-white">
-                        <tr>
-                            {["DATE", "FROM TIME", "TO TIME", "TASK DETAILS", "STATUS", "CHALLENGES FACED"].map((header) => (
-                                <th
-                                    key={header}
-                                    className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider"
-                                >
-                                    {header}
-                                </th>
-                            ))}
-                        </tr>
-                    </thead>
-
-                    <tbody className="bg-white">
-                        {tasks.map((task) => (
-                            <tr key={task.id} className="hover:bg-gray-50">
-                                <td className="px-4 py-3 text-sm text-gray-700">{task.date}</td>
-                                <td className="px-4 py-3 text-sm text-gray-700">{task.fromTime}</td>
-                                <td className="px-4 py-3 text-sm text-gray-700">{task.toTime}</td>
-                                <td className="px-4 py-3 text-sm text-gray-700 truncate max-w-xs">{task.details}</td>
-                                <td className="px-4 py-3">
-                                    <span className={`px-2 py-2 text-xs rounded-full ${task.status === "Completed"
-                                        ? "bg-green-100 text-green-800"
-                                        : "bg-red-100 text-red-700"
-                                        }`}>
-                                        {task.status}
-                                    </span>
-                                </td>
-                                <td className="px-4 py-3 text-sm text-gray-700">{task.challenges || "None"}</td>
+                <div className="w-full overflow-x-auto">
+                    <table className="min-w-full relative z-0">
+                        <thead className="bg-blue-500 text-white">
+                            <tr>
+                                {["DATE", "FROM TIME", "TO TIME", "TASK DETAILS", "STATUS", "CHALLENGES FACED"].map((header) => (
+                                    <th
+                                        key={header}
+                                        className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider whitespace-nowrap"
+                                    >
+                                        {header}
+                                    </th>
+                                ))}
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody className="bg-white">
+                            {tasks.map((task) => (
+                                <tr key={task.id} className="hover:bg-gray-50">
+                                    <td className="px-4 py-3 text-sm text-gray-700 whitespace-nowrap">{task.date}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-700 whitespace-nowrap">{task.fromTime}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-700 whitespace-nowrap">{task.toTime}</td>
+                                    <td className="px-4 py-3 text-sm text-gray-700 truncate max-w-xs">{task.details}</td>
+                                    <td className="px-4 py-3 whitespace-nowrap">
+                                        <span className={`px-2 py-2 text-xs rounded-full ${task.status === "Completed"
+                                                ? "bg-green-100 text-green-800"
+                                                : "bg-red-100 text-red-700"
+                                            }`}>
+                                            {task.status}
+                                        </span>
+                                    </td>
+                                    <td className="px-4 py-3 text-sm text-gray-700">{task.challenges || "None"}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
 
-            {/* Last Saved Task Modal */}
             {isLastTaskOpen && (
                 <LastSavedTask task={lastTask} onClose={() => setIsLastTaskOpen(false)} />
             )}
 
-            {/* Submit Button */}
             <div className="absolute bottom-1 right-0 z-10">
                 <button
                     onClick={onOpenModal}

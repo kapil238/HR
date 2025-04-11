@@ -6,6 +6,7 @@ import {
     UserCircleIcon,
     ChevronDownIcon,
     Bars3Icon,
+    XMarkIcon,
 } from "@heroicons/react/24/outline";
 import MobileMenu from "../components/MobileMenu";
 import ThemeSwitcher from "../components/ThemeSwitcher";
@@ -28,21 +29,24 @@ export default function Header() {
     return (
         <div className="relative flex justify-between justify-end items-center border-b pb-1 px-4 sm:px-6">
 
-            {/* Mobile Menu Button */}
+
             <div className="relative sm:hidden">
                 <button
                     className="p-2 text-gray-600 hover:text-gray-800"
                     onClick={() => setMenuOpen((prev) => !prev)}
                 >
-                    <Bars3Icon className="h-8 w-8" />
+                    {menuOpen ? (
+                        <XMarkIcon className="h-8 w-8" />
+                    ) : (
+                        <Bars3Icon className="h-8 w-8" />
+                    )}
                 </button>
-
-                <div className={`absolute top-full right-0 mt-2 transition-all duration-300 ${menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
+                <div className={`absolute top-5 right-10 transition-all duration-300 ${menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
                     <MobileMenu menuOpen={menuOpen} />
                 </div>
             </div>
 
-            {/* Desktop Menu */}
+
             <div className="hidden sm:flex items-center gap-3">
                 <div className="relative group flex items-center gap-5">
                     <button className="relative text-gray-500 hover:text-gray-700 cursor-pointer">
@@ -50,10 +54,10 @@ export default function Header() {
                         <span className="absolute top-0 right-0 h-1 w-1 rounded-full bg-red-500"></span>
                     </button>
 
-                    {/* Vertical Line */}
+
                     <div className="h-6 w-px bg-gray-300"></div>
 
-                    {/* Tooltip on hover */}
+
                     <div className="absolute top-full mt-1 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         Notifications
                     </div>
@@ -65,13 +69,13 @@ export default function Header() {
                         <QuestionMarkCircleIcon className="h-6 w-6" />
                     </button>
 
-                    {/* Tooltip on hover */}
+
                     <div className="absolute top-full mt-1 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         Help
                     </div>
                 </div>
 
-                {/* Profile Section */}
+
                 <div className="relative">
                     <button
                         className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-100"
@@ -88,7 +92,7 @@ export default function Header() {
                             <button
                                 className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                                 onClick={() => {
-                                    setProfileOpen(false); // ✅ Open ProfileCard
+                                    setProfileOpen(false);
                                     setProfileMenuOpen(false);
                                 }}
                             >
@@ -110,10 +114,10 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* ✅ Theme Switcher Modal */}
+
             {isThemeSwitcherOpen && <ThemeSwitcher closeModal={() => setThemeSwitcherOpen(false)} />}
 
-            {/* ✅ Profile Card Modal */}
+
             {isProfileOpen && <ProfileCard closeModal={() => setProfileOpen(false)} />}
         </div>
     );

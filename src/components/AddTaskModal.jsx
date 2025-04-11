@@ -7,7 +7,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
         fromTime: "",
         toTime: "",
         details: "",
-        status: "Pending",
+        status: "Not Completed",
         challenges: "",
     });
 
@@ -55,7 +55,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
             fromTime: "",
             toTime: "",
             details: "",
-            status: "Pending",
+            status: "Not Completed",
             challenges: "",
         });
     };
@@ -66,7 +66,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
         <div className="fixed inset-0 z-50 flex items-start justify-center">
             <div className="absolute inset-0 bg-black opacity-30" onClick={onClose}></div>
 
-            <div className="relative bg-white rounded-lg shadow-xl w-full max-w-4xl mx-4 mt-8">
+            <div className="relative bg-white rounded-lg shadow-xl w-full max-w-4xl mx-4 mt-4">
                 
                 <div className="flex justify-between items-center border-b px-5 py-3">
                     <h3 className="text-lg font-semibold text-black">Add Task</h3>
@@ -91,7 +91,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                                         setNewTask({ ...newTask, reportingManager: e.target.value });
                                         setErrors({ ...errors, reportingManager: false });
                                     }}
-                                    className={`w-full rounded-md p-3 text-xs appearance-none ${errors.reportingManager ? 'bg-red-50 border border-red-500' : 'bg-gray-100'} text-gray-700 pr-10`}
+                                    className={`w-full rounded-md p-3 text-xs appearance-none ${errors.reportingManager ? ' border border-red-500' : 'bg-gray-100'} text-gray-700 pr-10`}
                                 >
                                     <option value="">Select Reporting Manager</option>
                                     {reportingManagers.map((manager) => (
@@ -123,7 +123,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                                         setNewTask({ ...newTask, fromTime: e.target.value });
                                         setErrors({ ...errors, fromTime: false });
                                     }}
-                                    className={`w-full rounded-md p-3 text-xs ${errors.fromTime ? 'bg-red-50 border border-red-500' : 'bg-gray-100'} text-gray-700`}
+                                    className={`w-full rounded-md p-3 text-xs ${errors.fromTime ? ' border border-red-500' : 'bg-gray-100'} text-gray-700`}
                                 />
                                 {errors.fromTime && (
                                     <p className="text-red-500 text-xs mt-1">Please enter a start time</p>
@@ -144,7 +144,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                                         setNewTask({ ...newTask, toTime: e.target.value });
                                         setErrors({ ...errors, toTime: false });
                                     }}
-                                    className={`w-full rounded-md p-3 text-xs ${errors.toTime ? 'bg-red-50 border border-red-500' : 'bg-gray-100'} text-gray-700`}
+                                    className={`w-full rounded-md p-3 text-xs ${errors.toTime ? ' border border-red-500' : 'bg-gray-100'} text-gray-700`}
                                 />
                                 {errors.toTime && (
                                     <p className="text-red-500 text-xs mt-1">Please enter an end time</p>
@@ -153,7 +153,6 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                         </div>
                     </div>
 
-                    {/* Task Details */}
                     <div>
                         <label className="text-sm font-medium text-gray-700 block mb-2">
                             Task Details <span className="text-red-700 text-sm">*</span>
@@ -164,15 +163,12 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                                 setNewTask({ ...newTask, details: e.target.value });
                                 setErrors({ ...errors, details: false });
                             }}
-                            className={`w-full rounded-md p-3 text-xs h-24 ${errors.details ? 'bg-red-50 border border-red-500' : 'bg-gray-100'} text-gray-700`}
+                            className={`w-full rounded-md p-3 text-xs h-24 ${errors.details ? ' border border-red-500' : 'bg-gray-100'} text-gray-700`}
                         />
                         {errors.details && (
                             <p className="text-red-500 text-xs mt-1">Please enter task details</p>
                         )}
                     </div>
-
-
-                    {/* Status */}
                     <div className="flex items-center gap-4 relative">
                         <label className="text-sm font-medium text-gray-700 w-1/3">
                             Status <span className="text-red-700 text-sm">*</span>
@@ -183,14 +179,14 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                                 onChange={(e) => setNewTask({ ...newTask, status: e.target.value })}
                                 className="w-full rounded-md p-3 text-xs appearance-none bg-gray-100 text-gray-700 pr-10"
                             >
+                                <option value="Not-Completed">Not-Completed</option>
                                 <option value="Completed">Completed</option>
-                                <option value="Pending">Not-Completed</option>
                             </select>
                             <ChevronDownIcon className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none" />
                         </div>
                     </div>
 
-                    {/* Challenges Faced */}
+                    
                     <div>
                         <label className="text-sm font-medium text-gray-700 block mb-2">
                             Challenges Faced
@@ -205,7 +201,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                     </div>
                 </div>
 
-                {/* Footer */}
+                
                 <div className="flex justify-end p-4 border-t">
                     <button
                         onClick={handleAddTask}

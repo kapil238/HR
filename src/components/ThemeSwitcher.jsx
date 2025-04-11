@@ -34,7 +34,7 @@ export default function ThemeSwitcher({ closeModal }) {
         <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Switch Theme</h3>
         <hr className="mb-4" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-3 gap-4">
           {themes.map((t) => (
             <div key={t.value} className="flex flex-col items-center">
               <button

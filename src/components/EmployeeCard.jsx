@@ -6,7 +6,7 @@ const EmployeeCard = ({ title, subtitle, entries, isOpen, onClick }) => {
       
       <div 
         className="flex justify-between items-center px-4 py-2 cursor-pointer hover:bg-gray-50"
-        onClick={onClick} // Click event controlled by parent
+        onClick={onClick} 
       >
         <div>
           <h2 className="text-md font-semibold text-gray-500">{title}</h2>
@@ -31,14 +31,13 @@ const EmployeeCard = ({ title, subtitle, entries, isOpen, onClick }) => {
                 <div>
                   <p className="text-gray-800 font-medium">{entry.name}</p>
 
-                  {/* Show status text if it exists */}
+                  
                   {entry.statusText && (
                     <span className="text-xs px-2 py-1 rounded-md mt-1 inline-block bg-blue-100 text-blue-800">
                       {entry.statusText}
                     </span>
                   )}
 
-                  {/* Show status icon if it exists */}
                   {entry.statusIcon && <span className="ml-2">{entry.statusIcon}</span>}
                 </div>
                 <span className="text-sm text-gray-500">{entry.date}</span>

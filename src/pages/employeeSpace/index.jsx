@@ -98,7 +98,7 @@ export default function EmployeeSpace() {
             <DailyWorkReport />
 
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 w-full">
               {cardData.map((card, index) => (
                 <EmployeeCard
                   key={index}
@@ -113,7 +113,7 @@ export default function EmployeeSpace() {
               <EmployeeStatusTable />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6 w-full mt-6">
               {taskData.map((task, index) => (
                 <EmployeeCard
                   key={index}

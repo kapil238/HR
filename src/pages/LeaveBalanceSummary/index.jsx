@@ -63,10 +63,10 @@ export default function LeaveSummary() {
 
                 <div className="flex flex-wrap gap-4 w-full justify-between sm:justify-around">
 
-                    <button className="text-base font-medium leading-none px-4 py-3 rounded-md border bg-[#EDEDED] cursor-pointer min-w-[200px] ">
+                    <button className="text-base font-medium leading-none px-4 py-3 rounded-md border bg-[#EDEDED] cursor-pointer w-full sm:w-[200px] ">
                         12-03-2025
                     </button>
-                    <button className="text-base font-medium leading-none px-4 py-3 rounded-md border bg-[#EDEDED] cursor-pointer min-w-[200px]">
+                    <button className="text-base font-medium leading-none px-4 py-3 rounded-md border bg-[#EDEDED] cursor-pointer w-full sm:w-[220px]">
                         TECHSOUL SOLUTIONS
                     </button>
 
