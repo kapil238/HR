@@ -130,10 +130,10 @@ export default function LeaveSummary() {
                     { label: "Team Lead (Name)", name: "teamLeadName", valid: "Name" },
                   ].map(({ label, name, valid }) => (
                     <div key={name} className="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center">
-                      <span className="text-md text-black font-semibold sm:w-2/5 w-full">
+                      <span className="text-md text-black font-semibold sm:w-3/7 w-full">
                         • {label} <span className="text-red-700 text-md">*</span> :
                       </span>
-                      <div className="w-full sm:w-3/5">
+                      <div className="w-full sm:w-4/7">
                         <Input
                           label={label}
                           name={name}
@@ -156,10 +156,10 @@ export default function LeaveSummary() {
                     { label: "To Date", name: "toDate", valid: "To Date" },
                   ].map(({ label, name, valid }) => (
                     <div key={name} className="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center">
-                      <span className="text-md text-black font-semibold sm:w-2/5 w-full">
+                      <span className="text-md text-black font-semibold sm:w-3/7 w-full">
                         • {label} <span className="text-red-700 text-md ">*</span> :
                       </span>
-                      <div className="w-full sm:w-3/5">
+                      <div className="w-full sm:w-4/7">
                         <Input
                           label={label}
                           name={name}
