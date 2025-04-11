@@ -67,7 +67,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
             <div className="absolute inset-0 bg-black opacity-30" onClick={onClose}></div>
 
             <div className="relative bg-white rounded-lg shadow-xl w-full max-w-4xl mx-4 mt-8">
-                {/* Header */}
+                
                 <div className="flex justify-between items-center border-b px-5 py-3">
                     <h3 className="text-lg font-semibold text-black">Add Task</h3>
                     <button onClick={onClose} className="text-gray-500 hover:text-gray-700 cursor-pointer">
@@ -76,9 +76,9 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                 </div>
                 <hr className="border-t border-gray-300" />
 
-                {/* Form */}
+                
                 <div className="p-6 space-y-4">
-                    {/* Reporting Manager */}
+                    
                     <div>
                         <div className="flex items-center gap-4 pb-2 relative">
                             <label className="text-sm font-medium text-gray-700 w-1/3">
@@ -111,7 +111,6 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                             </div>
                         </div>
 
-                        {/* From Time */}
                         <div className="flex items-center gap-4 pb-2">
                             <label className="text-sm font-medium text-gray-700 w-1/3">
                                 From Time <span className="text-red-700 text-sm">*</span>
@@ -132,7 +131,7 @@ export default function AddTaskModal({ isOpen, onClose, reportingManagers }) {
                             </div>
                         </div>
 
-                        {/* To Time */}
+                        
                         <div className="flex items-center gap-4 pb-2">
                             <label className="text-sm font-medium text-gray-700 w-1/3">
                                 To Time <span className="text-red-700 text-sm">*</span>
